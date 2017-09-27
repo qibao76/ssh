@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- /mapping/PUser.hbm.xml -->
+	<class name="cn.tedu.entity.PUser" table="p_user">
+		<id name="id" column="u_id">
+			<!-- <generator class="org.hibernate.id.IdentityGenerator"/> -->
+			<generator class="identity" />
+		</id>
+		<property name="name" column="u_name" />
+		<property name="password" column="u_password" type="string" />
+		<property name="nick" column="u_nick" />
+		<property name="regDate" column="u_reg_date" />
+	</class>
+</hibernate-mapping>
+
+
+

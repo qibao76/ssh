@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- http://localhost:8080/ssh/demo -->
+	<package name="demo" namespace="/demo"
+		extends="struts-default">
+		<!-- 规定url和控制器方法的对应关系 -->
+	<!-- http://localhost:8080
+		  /ssh/demo/hello.action -->
+		<action name="hello" 
+			 class="ssh.day01.DemoAction"
+			 method="execute">
+			 <!-- 定义控制器方法的返回值
+			   和jsp页面的对应关系 -->
+			 <result name="success">
+			 	/WEB-INF/ok.jsp
+			 </result>
+		</action>
+		<!--测试: 从表单传递数据到控制器 -->
+		<action name="test" 
+			class="ssh.day01.TestAction">
+			<result name="success">
+				/WEB-INF/ok.jsp
+			</result>	
+		</action>
+		
+		<!-- 测试 从控制器向浏览器传送数据 -->
+		<action name="message"
+			class="ssh.day01.MessageAction">
+			<!-- dispatcher 结果类型表示
+			控制器执行结束以后转发到 JSP 页面 -->
+			<result type="dispatcher" name="success">
+				/WEB-INF/msg.jsp
+			</result>
+		</action>
+		
+		<!-- 测试重定向类型结果 -->
+		<action name="doc" 
+			class="ssh.day01.DocAction">
+			<result name="success"
+					type="redirect">
+				http://doc.tedu.cn
+				<!-- 
+				<param name="location">
+					http://doc.tedu.cn	
+				</param>  -->		
+			</result>
+		</action>
+		
+		<!-- 重定向到其他控制器 -->
+		<action name="touch" 
+			class="ssh.day01.TouchAction">
+			<result name="ok"
+				type="redirectAction">
+				hello
+			</result>	
+		</action>
+		
+		<!-- 下载图片到 浏览器  -->
+		<action name="img"
+			class="ssh.day01.ImageAction">
+			<result name="success" type="stream">
+				<param name="contentType">
+					image/png
+				</param>
+				<param name="inputName">
+					img
+				</param>
+				<param name="contentDisposition">
+					attachment;filename="img.png"	
+				</param>
+			</result>	
+		</action>
+	
+		<!-- 下载 Excel  -->
+		<action name="excel"
+			class="ssh.day02.ExcelAction">
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/vnd.ms-excel
+				</param>
+				<param name="inputName">
+					out
+				</param>
+				<param name="contentDisposition">
+					attachment;filename="demo.xls"	
+				</param>
+			</result>	
+		</action>
+		
+	</package>
+	
+	<package name="test" namespace="/test"
+		extends="json-default">
+		<!-- 将控制器的全部属性转换为JSON属性
+		发送到浏览器 -->
+		<action name="json" 
+			class="ssh.day02.JsonAction">
+			<result name="success" type="json"/>	
+		</action>
+		<!-- 将控制器中的一个属性发送到客户端 -->
+		<action name="json2"
+			class="ssh.day02.JsonAction">
+			<result name="success" type="json">
+				<!-- root 属性用于设定将发送
+				的属性名 -->
+				<param name="root">
+					names
+				</param>
+			</result>
+		</action>
+		
+		<!-- 将 JsonResult 属性发送到客户端 -->
+		<action name="json3"
+			class="ssh.day02.JsonResultAction">
+			<result name="success" type="json">
+				<param name="root">
+					jsonResult				
+				</param>
+			</result>	
+		</action>
+		
+		<!-- 使用由 Spring 管理的控制器组件 
+			class的值是Spring中的BeanID-->
+		<action name="test" class="testAction">
+			<result name="success">
+				/WEB-INF/ok.jsp
+			</result>
+		</action>
+	</package>
+	
+	
+	<package name="user" namespace="/user" 
+		extends="json-default">
+		
+		<interceptors>
+			<interceptor name="demo" 
+				class="demoInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="demo"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="myStack"/>
+		
+		<action name="list" class="userAction"
+			method="list"> 
+			<result name="success">
+				/WEB-INF/jsp/list.jsp
+			</result>
+		</action>
+		
+		<!-- 并发安全性测试 -->
+		<action name="save1" 
+			class="userAction"
+			method="save1">
+			<result name="success">
+				/WEB-INF/ok.jsp
+			</result>	
+		</action>
+		
+		<!-- 显示添加用户界面 -->
+		<action name="add">
+			<result>
+				/WEB-INF/jsp/adduser.jsp
+			</result>
+		</action>
+		
+		<!-- 添加用户表单的保存方法 -->
+		<action name="save" class="userAction"
+			method="save">
+			<result name="success" 
+				type="redirectAction">
+				list
+			</result>	
+			<result name="error">
+				/WEB-INF/jsp/adduser.jsp
+			</result>
+		</action>
+		
+		<!-- 显示编辑用户信息的界面 -->
+		<action name="edit" class="userAction"
+			method="edit">
+		 
+			<result name="success" >
+				/WEB-INF/jsp/edituser.jsp
+			</result>
+		</action>
+		
+		<!-- 修改用户信息界面的保存功能 -->
+		<action name="update"
+			class="userAction"
+			method="update">
+			<result name="success" 
+				type="redirectAction">
+				list
+			</result>
+			<result name="error">
+				/WEB-INF/jsp/edituser.jsp
+			</result>	
+		</action>
+	</package>
+	
+	<package name="post" namespace="/post"
+		extends="json-default">
+		<action name="list" class="postAction"
+			method="list">
+			<result name="json" type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</action>
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+

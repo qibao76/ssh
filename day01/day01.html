@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day01</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<p>SSH 组合为: </p>
+<pre><code>Spring 
+Struts2 
+Hibernate
+</code></pre>
+
+<p>SSM组合为: </p>
+<pre><code>Spring
+Spring MVC
+MyBatis
+</code></pre>
+
+<p>框架是什么? 封装了软件中经常使用的技术代码, 这样写项目时候就可以重用这些代码, 程序员就可以只关注软件的业务功能,不用关心繁琐的技术问题.</p>
+<h2>MVC</h2>
+<p>MVC 是一种设计模式:</p>
+<p><img src="2.png" /></p>
+<h2>Struts2</h2>
+<p>Struts2 源自 XWorks(Web Works) 与 Struts1 没有关系.</p>
+<h3>Struts环境搭建</h3>
+<p>SSH结构为:</p>
+<p><img src="1.png" /></p>
+<p>搭建步骤:</p>
+<ol>
+<li>
+<p>创建Maven项目, 导入Struts2 包:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;
+    &lt;version&gt;2.5.12&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<blockquote>
+<p>需要生成部署描述文件 和 配置目标服务器运行环境.</p>
+</blockquote>
+</li>
+<li>
+<p>配置主控制器:</p>
+<pre><code>&lt;filter&gt;
+    &lt;display-name&gt;StrutsPrepareAndExecuteFilter&lt;/display-name&gt;
+    &lt;filter-name&gt;StrutsPrepareAndExecuteFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;StrutsPrepareAndExecuteFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Struts配置文件 struts.xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.5//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.5.dtd&quot;&gt;
+&lt;struts&gt;
+&lt;/struts&gt;
+</code></pre>
+
+<blockquote>
+<p>DTD 信息来自 struts-2.5.dtd</p>
+</blockquote>
+</li>
+<li>
+<p>部署测试.</p>
+</li>
+</ol>
+<h3>Hello World</h3>
+<p>原理: </p>
+<p><img src="3.png" /></p>
+<p>步骤:</p>
+<ol>
+<li>
+<p>编写控制器类:</p>
+<pre><code>/**
+ * 控制器类 
+ */
+public class DemoAction {
+    /**
+     * 控制器 中的流程控制方法
+     * 在用户请求URL时候执行 
+     */
+    public String execute(){
+        System.out.println(&quot;Hello World!&quot;);
+        //返回的值  success 代表jsp的视图名称
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写 ok.jsp</p>
+<pre><code>&lt;%@ page contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- http://localhost:8080/ssh/demo --&gt;
+&lt;package name=&quot;demo&quot; namespace=&quot;/demo&quot;
+    extends=&quot;struts-default&quot;&gt;
+    &lt;!-- 规定url和控制器方法的对应关系 --&gt;
+    &lt;!-- http://localhost:8080 /ssh/demo/hello.action --&gt;
+    &lt;action name=&quot;hello&quot; 
+         class=&quot;ssh.day01.DemoAction&quot;
+         method=&quot;execute&quot;&gt;
+         &lt;!-- 定义控制器方法的返回值
+           和jsp页面的对应关系 --&gt;
+         &lt;result name=&quot;success&quot;&gt;
+            /WEB-INF/ok.jsp
+         &lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080 /ssh/demo/hello.action
+</code></pre>
+
+</li>
+</ol>
+<h3>从浏览器到控制器传送参数</h3>
+<p>Struts2 封装了从浏览器到控制器传递功能, 只需要将 浏览器中的input 元素name属性的值与控制器的 bean 属性名称对应, 就可以在控制器中接收到参数值.</p>
+<p>原理:</p>
+<p><img src="4.png" /></p>
+<p>步骤:</p>
+<ol>
+<li>
+<p>编写表单 demo.html:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;页面向控制器传送数据&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;利用表单提交数据&lt;/h1&gt;
+    &lt;form action=&quot;demo/test.action&quot;
+        method=&quot;post&quot;&gt;
+        &lt;label&gt;用户名:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
+        &lt;label&gt;年龄:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;age&quot;&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+    &lt;/form&gt; 
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器:</p>
+<pre><code>public class TestAction {
+
+    private String username;
+    private Integer age;
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String execute(){
+        //检查 浏览器 传递到控制器的数据
+        System.out.println(username+&quot;,&quot;+age);
+        return &quot;success&quot;;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!--测试: 从表单传递数据到控制器 --&gt;
+&lt;action name=&quot;test&quot; 
+    class=&quot;ssh.day01.TestAction&quot;&gt;
+    &lt;result name=&quot;success&quot;&gt;
+        /WEB-INF/ok.jsp
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+</li>
+</ol>
+<h3>从控制器向浏览器传送数据</h3>
+<p>Struts2 中控制器的Bean属性可以在JSP中直接使用 EL 表达式访问:</p>
+<p><img src="5.png" /></p>
+<blockquote>
+<p>不仅仅可与传递字符串数据, 还可以专递包括集合类型的任何数据.</p>
+</blockquote>
+<p>案例步骤:</p>
+<ol>
+<li>
+<p>编写控制器:</p>
+<pre><code>/**
+ * 测试: 从控制器向浏览器传送数据 
+ */
+public class MessageAction {
+    private String message;
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String execute(){
+        message = &quot;Hello World!&quot;;
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>编辑msg.jsp显示信息</p>
+<pre><code>&lt;%@ page 
+    contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;控制器向浏览器传送数据&lt;/h1&gt;
+    &lt;p&gt;${message}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置struts.xml</p>
+<pre><code>&lt;!-- 测试 从控制器向浏览器传送数据 --&gt;
+&lt;action name=&quot;message&quot;
+    class=&quot;ssh.day01.MessageAction&quot;&gt;
+    &lt;!-- dispatcher 结果类型表示
+    控制器执行结束以后转发到 JSP 页面 --&gt;
+    &lt;result type=&quot;dispatcher&quot; name=&quot;success&quot;&gt;
+        /WEB-INF/msg.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+</li>
+</ol>
+<h2>Result 的类型</h2>
+<p>Struts提供了丰富的结果类型, 每种结果类型都由一个类处理响应的逻辑, 如下代码是 struts-default.xml 文件中的定义:</p>
+<pre><code>    &lt;result-types&gt;
+        &lt;result-type name=&quot;chain&quot; class=&quot;com.opensymphony.xwork2.ActionChainResult&quot;/&gt;
+        &lt;result-type name=&quot;dispatcher&quot; class=&quot;org.apache.struts2.result.ServletDispatcherResult&quot; default=&quot;true&quot;/&gt;
+        &lt;result-type name=&quot;freemarker&quot; class=&quot;org.apache.struts2.views.freemarker.FreemarkerResult&quot;/&gt;
+        &lt;result-type name=&quot;httpheader&quot; class=&quot;org.apache.struts2.result.HttpHeaderResult&quot;/&gt;
+        &lt;result-type name=&quot;redirect&quot; class=&quot;org.apache.struts2.result.ServletRedirectResult&quot;/&gt;
+        &lt;result-type name=&quot;redirectAction&quot; class=&quot;org.apache.struts2.result.ServletActionRedirectResult&quot;/&gt;
+        &lt;result-type name=&quot;stream&quot; class=&quot;org.apache.struts2.result.StreamResult&quot;/&gt;
+        &lt;result-type name=&quot;velocity&quot; class=&quot;org.apache.struts2.result.VelocityResult&quot;/&gt;
+        &lt;result-type name=&quot;xslt&quot; class=&quot;org.apache.struts2.views.xslt.XSLTResult&quot;/&gt;
+        &lt;result-type name=&quot;plainText&quot; class=&quot;org.apache.struts2.result.PlainTextResult&quot; /&gt;
+        &lt;result-type name=&quot;postback&quot; class=&quot;org.apache.struts2.result.PostbackResult&quot; /&gt;
+    &lt;/result-types&gt;
+</code></pre>
+
+<blockquote>
+<p>默认情况下的result 其类型为 dispatcher, 规则为转发.</p>
+</blockquote>
+<h3>redirect 重定向</h3>
+<p>这个类型用于重定向到其他的URL:</p>
+<p><img src="6.png" /></p>
+<p>案例步骤:</p>
+<ol>
+<li>
+<p>编写控制器:</p>
+<pre><code>/**
+ * 测试: 重定向
+ */
+public class DocAction {
+    public String execute(){
+        System.out.println(&quot;DocAction&quot;);
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml:</p>
+<pre><code>&lt;!-- 测试重定向类型结果 --&gt;
+&lt;action name=&quot;doc&quot; class=&quot;ssh.day01.DocAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;redirect&quot;&gt;
+        http://doc.tedu.cn
+        &lt;!-- 
+        &lt;param name=&quot;location&quot;&gt;
+            http://doc.tedu.cn  
+        &lt;/param&gt;  --&gt;       
+    &lt;/result&gt;
+&lt;/action&gt;   
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+</li>
+</ol>
+<h3>redirectAction 重定向到其他控制器</h3>
+<p>Struts2 支持重定向到其他控制器:</p>
+<p><img src="7.png" /></p>
+<p>案例步骤:</p>
+<ol>
+<li>
+<p>编写控制器</p>
+<pre><code>/**
+ * 测试: 重定向到其他Action 
+ */
+public class TouchAction {
+    public String execute(){
+        System.out.println(&quot;TouchAction&quot;);
+        return &quot;ok&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置</p>
+<pre><code>&lt;!-- 重定向到其他控制器 --&gt;
+&lt;action name=&quot;touch&quot; 
+    class=&quot;ssh.day01.TouchAction&quot;&gt;
+    &lt;result name=&quot;ok&quot;
+        type=&quot;redirectAction&quot;&gt;
+        hello
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+</li>
+</ol>
+<h3>stream 类型结果, 用于下载资源</h3>
+<p>Http协议支持下载: <a href="http://doc.tedu.cn/rfc/rfc2616.txt">http://doc.tedu.cn/rfc/rfc2616.txt</a></p>
+<p>原理:</p>
+<p><img src="8.png" /></p>
+<p>案例步骤:</p>
+<ol>
+<li>
+<p>编写控制器:</p>
+<pre><code>/**
+ * 下载图片到浏览器 
+ */
+public class ImageAction {
+    private InputStream img;
+    public InputStream getImg() {
+        return img;
+    }
+    public void setImg(InputStream img) {
+        this.img = img;
+    }
+
+    public String execute() throws IOException{
+        byte[] png = createPng();
+        //将byte数组作为流读取
+        img=new ByteArrayInputStream(png);
+        return &quot;success&quot;;
+    }
+
+    private byte[] createPng() 
+                throws IOException{
+        BufferedImage img = 
+            new BufferedImage(200,100,
+            BufferedImage.TYPE_3BYTE_BGR);
+        img.setRGB(100, 50, 0xffff00);
+        ByteArrayOutputStream out =
+            new ByteArrayOutputStream();
+        ImageIO.write(img, &quot;png&quot;, out);
+        out.close();
+        byte[] data = out.toByteArray();
+        return data;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置:</p>
+<pre><code>&lt;!-- 下载图片到 浏览器  --&gt;
+&lt;action name=&quot;img&quot;
+    class=&quot;ssh.day01.ImageAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;stream&quot;&gt;
+        &lt;param name=&quot;contentType&quot;&gt;
+            image/png
+        &lt;/param&gt;
+        &lt;param name=&quot;inputName&quot;&gt;
+            img
+        &lt;/param&gt;
+        &lt;param name=&quot;contentDisposition&quot;&gt;
+            attachment;filename=&quot;img.png&quot;   
+        &lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+</li>
+</ol>
+<h2>作业</h2>
+<ol>
+<li>搭建Struts2 开发环境</li>
+<li>测试 HelloWorld!</li>
+<li>测试 重定向</li>
+<li>实现动态图片下载功能</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

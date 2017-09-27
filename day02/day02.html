@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day02</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>Struts2</h2>
+<h3>Stream Result Excel下载</h3>
+<p>Stream类型的Result支持任何类型数据的下载, 也支持Excel类型的下载, 可以利用POI, 产生Excel数据, 下载到客户端.</p>
+<p>原理:</p>
+<p><img src="1.png" /></p>
+<p>步骤:</p>
+<ol>
+<li>
+<p>导入Apache POI API</p>
+<pre><code>&lt;!-- POI 用于生成 Excel 文件 --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+    &lt;artifactId&gt;poi&lt;/artifactId&gt;
+    &lt;version&gt;3.16&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器:</p>
+<pre><code>/**
+ * 动态下载Excel文件 
+ *
+ */
+public class ExcelAction {
+
+    private InputStream out;
+
+    public InputStream getOut() {
+        return out;
+    }
+    public void setOut(InputStream out) {
+        this.out = out;
+    }
+
+    public String execute() throws IOException{
+        byte[] excel = createExcel();
+        out =new  ByteArrayInputStream(excel);
+        return &quot;success&quot;;
+    }
+
+    private byte[] createExcel() throws IOException {
+        //创建工作表(Excel 文件)
+        HSSFWorkbook workbook = 
+                new HSSFWorkbook();
+        //创建 工作表
+        HSSFSheet sheet =
+            workbook.createSheet(&quot;Hello&quot;);
+        //在工作表中添加一行数据
+        HSSFRow head=sheet.createRow(0);
+        //在表头里面插入3个格子
+        HSSFCell c1=head.createCell(0);
+        HSSFCell c2=head.createCell(1);
+        HSSFCell c3=head.createCell(2);
+        c1.setCellValue(&quot;编号&quot;);
+        c2.setCellValue(&quot;姓名&quot;);
+        c3.setCellValue(&quot;年龄&quot;);
+        //插入数据
+        HSSFRow row=sheet.createRow(1);
+        c1=row.createCell(0);
+        c2=row.createCell(1);
+        c3=row.createCell(2);
+        c1.setCellValue(1);
+        c2.setCellValue(&quot;Tom&quot;);
+        c3.setCellValue(5);
+        //将工作簿写到文件中
+        ByteArrayOutputStream out=
+            new ByteArrayOutputStream();
+        workbook.write(out);
+        workbook.close();
+        out.close();
+        return out.toByteArray();
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 下载 Excel  --&gt;
+&lt;action name=&quot;excel&quot;
+    class=&quot;ssh.day02.ExcelAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;stream&quot;&gt;
+        &lt;param name=&quot;contentType&quot;&gt;
+            application/vnd.ms-excel
+        &lt;/param&gt;
+        &lt;param name=&quot;inputName&quot;&gt;
+            out
+        &lt;/param&gt;
+        &lt;param name=&quot;contentDisposition&quot;&gt;
+            attachment;filename=&quot;demo.xls&quot;  
+        &lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh/demo/excel.action
+</code></pre>
+
+</li>
+<li>
+<p>在网页中使用下载链接, download.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;下载资料&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;下载资料&lt;/h1&gt;
+    &lt;p&gt;
+        下载&lt;a href=&quot;demo/img.action&quot;&gt;照片&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        下载&lt;a href=&quot;demo/excel.action&quot;&gt;Excel&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;input type=&quot;button&quot; 
+            value=&quot;下载&quot; onclick=&quot;download()&quot;&gt;
+    &lt;/p&gt;
+&lt;/body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function download(){
+    //在JS中发起 get 请求
+    location.href=&quot;demo/excel.action&quot;;
+}
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+</ol>
+<h3>Json Result</h3>
+<p>struts2-json-plugin 提供了 Json类型结果, 在插件中包含文件 struts-plugin.xml, 其中包含:</p>
+<pre><code>&lt;package name=&quot;json-default&quot; extends=&quot;struts-default&quot;&gt;
+
+    &lt;result-types&gt;
+        &lt;result-type name=&quot;json&quot; class=&quot;org.apache.struts2.json.JSONResult&quot;/&gt;
+        &lt;result-type name=&quot;jsonActionRedirect&quot; class=&quot;org.apache.struts2.json.JSONActionRedirectResult&quot;/&gt;
+    &lt;/result-types&gt;
+...
+</code></pre>
+
+<p>可以看到 继承 json-default 就可以获得 json 类型的Result.</p>
+<p>JSON Result 默认规则是: 将控制器的全部Bean属性序列化为JSON对象属性返回到浏览器</p>
+<p><img src="2.png" /></p>
+<p>测试步骤:</p>
+<ol>
+<li>
+<p>导入 struts2-json-plugin</p>
+<pre><code>&lt;!-- JSON 插件 --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+  &lt;artifactId&gt;struts2-json-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.5.12&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器:</p>
+<pre><code>public class JsonAction {
+    private String name;
+    private int age;
+    private String[] names;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String[] getNames() {
+        return names;
+    }
+    public void setNames(String[] names) {
+        this.names = names;
+    }
+
+    public String execute(){
+        System.out.println(&quot;Json Result&quot;);
+        name = &quot;Tom&quot;;
+        age = 10;
+        names = new String[]{&quot;Andy&quot;,&quot;Mac&quot;};
+        return &quot;success&quot;;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;package name=&quot;test&quot; namespace=&quot;/test&quot;
+    extends=&quot;json-default&quot;&gt;
+    &lt;!-- 将控制器的全部属性转换为JSON属性
+    发送到浏览器 --&gt;
+    &lt;action name=&quot;json&quot; 
+        class=&quot;ssh.day02.JsonAction&quot;&gt;
+        &lt;result name=&quot;success&quot; type=&quot;json&quot;/&gt;    
+    &lt;/action&gt;
+&lt;/package&gt;
+</code></pre>
+
+<blockquote>
+<p>注意: 需要从 json-default 继承才能获得 json 类型Result.</p>
+</blockquote>
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh/test/json.action
+</code></pre>
+
+</li>
+</ol>
+<p>默认的JSON类型结果会造成输出结果范围太大, 一般建议控制输出一个属性:</p>
+<p>案例:</p>
+<ol>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 将控制器中的一个属性发送到客户端 --&gt;
+&lt;action name=&quot;json2&quot; class=&quot;ssh.day02.JsonAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;json&quot;&gt;
+        &lt;!-- root 属性用于设定将发送的属性名 --&gt;
+        &lt;param name=&quot;root&quot;&gt;
+            names
+        &lt;/param&gt;
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+<blockquote>
+<p>注意: 属性root用于指定控制器中需要发送的Bean属性名称.
+注意: 这里重用了 JsonAction 控制器.</p>
+</blockquote>
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh/test/json.action
+</code></pre>
+
+</li>
+</ol>
+<p>一般情况下,可以将需要发送的数据打包为 JsonResult类型的对象, 一起发送到客户端:</p>
+<p>案例:</p>
+<ol>
+<li>
+<p>编写 JsonResult</p>
+<pre><code>/**
+ * 值对象:VO(Value Object) 
+ * 1)封装控制层相关方法返回的数据 
+ * 2)统一服务端相关方法返回的数据格式
+ */
+public class JsonResult {
+    public static final int SUCCESS = 1;
+    public static final int ERROR = 0;
+    /** 状态:(SUCCESS,ERROR) */
+    private int state;
+    /** 状态信息 */
+    private String message;
+    /** 具体数据 */
+    private Object data;
+
+    public JsonResult() {
+        state = SUCCESS;
+    }
+
+    public JsonResult(String message) {
+        this();
+        this.message = message;// 例如 insert ok,update ok
+    }
+
+    public JsonResult(Object data) {
+        this();
+        this.data = data;
+    }
+
+    public JsonResult(Throwable exp) {
+        state = ERROR;
+        this.message = exp.getMessage();
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+}   
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器</p>
+<pre><code>/**
+ * 将控制器中jsonResult属性发送到客户端 
+ */
+public class JsonResultAction {
+    private JsonResult jsonResult;
+
+    public JsonResult getJsonResult() {
+        return jsonResult;
+    }
+    public void setJsonResult(JsonResult jsonResult) {
+        this.jsonResult = jsonResult;
+    }
+
+    public String execute(){
+        String[] names = {&quot;熊大&quot;, &quot;熊二&quot;};
+        jsonResult = new JsonResult(names);
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 将 JsonResult 属性发送到客户端 --&gt;
+&lt;action name=&quot;json3&quot;
+    class=&quot;ssh.day02.JsonResultAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;json&quot;&gt;
+        &lt;param name=&quot;root&quot;&gt;
+            jsonResult              
+        &lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh/test/json3.action
+</code></pre>
+
+</li>
+</ol>
+<h2>Struts2 与 Spring 整合</h2>
+<p>Struts2 提供了 Struts2-spring-plugin插件, 导入插件后 Struts2 可以利用Spring容器作为工厂创建控制器对象的实例.</p>
+<p>整合步骤:</p>
+<ol>
+<li>
+<p>导入Struts2-spring-plugin插件:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+  &lt;artifactId&gt;struts2-spring-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.5.12&lt;/version&gt;
+&lt;/dependency&gt;   
+</code></pre>
+
+<blockquote>
+<p>导入这个插件的时候,会自动依赖导入Spring的包.</p>
+</blockquote>
+</li>
+<li>
+<p>在web.xml中配置监听器, 初始化Spring容器:</p>
+<pre><code>&lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:conf/spring-*.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre>
+
+<blockquote>
+<p>其中: contextConfigLocation 参数是ContextLoaderListener的参数, 用于获取Spring容器的初始化配置文件.</p>
+</blockquote>
+</li>
+<li>
+<p>添加Spring的配置文件 conf/spring-struts.xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans default-lazy-init=&quot;true&quot;
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xsi:schemaLocation=&quot;  
+       http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+       http://www.springframework.org/schema/mvc   
+       http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd   
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx-4.1.xsd   
+       http://www.springframework.org/schema/context  
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd&quot; &gt;  
+
+&lt;/beans&gt;
+</code></pre>
+
+<blockquote>
+<p>注解: Schema 文件的版本必须与Spring版本一致!!</p>
+</blockquote>
+</li>
+<li>
+<p>启动容器测试</p>
+</li>
+</ol>
+<h3>Spring + Struts2 Hello World!</h3>
+<p>整合Spring插件使用以后, 利用Spring管理控制器Bean组件, 在Struts2 配置文件的class属性上使用Spring 的BeanID就可以使用Spring管理的控制器Bean组件了.</p>
+<p>原理:</p>
+<p><img src="3.png" /></p>
+<p>案例:</p>
+<ol>
+<li>
+<p>添加控制器Bean组件</p>
+<pre><code>@Controller
+public class TestAction {
+    public String execute(){
+        System.out.println(&quot;testAction&quot;);
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>在Spring配置文件中配置组件扫描: spring-struts.xml</p>
+<pre><code>&lt;context:component-scan base-package=&quot;ssh.day02&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置struts.xml:</p>
+<pre><code>&lt;!-- 使用由 Spring 管理的控制器组件 
+    class的值是Spring中的BeanID--&gt;
+&lt;action name=&quot;test&quot; class=&quot;testAction&quot;&gt;
+    &lt;result name=&quot;success&quot;&gt;
+        /WEB-INF/ok.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh/test/test.action
+</code></pre>
+
+</li>
+</ol>
+<h2>Hibernate</h2>
+<p>Hibernate: 冬眠, 将对象的数据长久的保存到数据库</p>
+<p>ORM 对象关系映射: 解决对象数据到关系型数据库的自动映射存储.</p>
+<pre><code>user = new User();
+session.save(user);
+session.delete(user);
+</code></pre>
+
+<blockquote>
+<p>Hibernate 的 Session 接口提供了 CRUD 方法.</p>
+</blockquote>
+<p>Hibernate 整体架构:</p>
+<p><img src="4.png" /></p>
+<p>使用步骤:</p>
+<ol>
+<li>
+<p>导入Hibernate 和 MySQL JDBC 驱动:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+  &lt;version&gt;4.3.9.Final&lt;/version&gt;
+&lt;/dependency&gt;       
+
+&lt;dependency&gt;
+  &lt;groupId&gt;mysql&lt;/groupId&gt;
+  &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+  &lt;version&gt;5.1.38&lt;/version&gt;
+&lt;/dependency&gt;       
+</code></pre>
+
+</li>
+<li>
+<p>配置Hibernate主配置文件 hibernate.cfg.xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+    &lt;property name=&quot;connection.driver_class&quot;&gt;
+       com.mysql.jdbc.Driver    
+     &lt;/property&gt;
+    &lt;property name=&quot;connection.url&quot;&gt;
+       jdbc:mysql://localhost:3306/ssh
+    &lt;/property&gt;
+    &lt;property name=&quot;connection.username&quot;&gt;
+         root
+    &lt;/property&gt;
+    &lt;property name=&quot;connection.password&quot;&gt;
+       root
+    &lt;/property&gt;
+
+    &lt;!-- SQL dialect(方言) 用于生成不同
+    SQL数据库的SQL语句--&gt;
+    &lt;property name=&quot;dialect&quot;&gt;
+        org.hibernate.dialect.MySQL5Dialect
+    &lt;/property&gt;
+
+     &lt;property name=&quot;show_sql&quot;&gt;
+        true
+     &lt;/property&gt;
+     &lt;property name=&quot;format_sql&quot;&gt;
+        true
+     &lt;/property&gt;     
+
+     &lt;!-- 加载 映射文件(子配置文件) --&gt;     
+     &lt;mapping resource=&quot;mapping/User.hbm.xml&quot;/&gt; 
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre>
+
+<blockquote>
+<p>DTD 来自文件 hibernate-configuration-3.0.dtd</p>
+</blockquote>
+</li>
+<li>
+<p>声明实体类:</p>
+<pre><code>public class User implements Serializable{
+    private static final long serialVersionUID = -7677661768006650066L;
+
+    private Integer id;
+    private String name;
+    private Integer age;
+    private Double salary;
+    private Timestamp hiredate;
+
+    public User() {
+    }
+
+    public User(Integer id, String name, Integer age, Double salary, Timestamp hiredate) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.hiredate = hiredate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public Timestamp getHiredate() {
+        return hiredate;
+    }
+
+    public void setHiredate(Timestamp hiredate) {
+        this.hiredate = hiredate;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;User [id=&quot; + id + &quot;, name=&quot; + name + &quot;, age=&quot; + age + &quot;, salary=&quot; + salary + &quot;, hiredate=&quot; + hiredate
+                + &quot;]&quot;;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>创建表:</p>
+<pre><code>create database ssh;
+use ssh;
+create table t_user(
+    t_id int,
+    t_name varchar(100),
+    t_age int,
+    t_salary double,
+    t_hiredate timestamp,
+    primary key (t_id)
+);
+</code></pre>
+
+</li>
+<li>
+<p>配置映射文件 mapping/User.hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;!-- 用于声明 实例类和表的映射关系
+    声明 属性和表中列(字段)的对应关系 --&gt;
+    &lt;class name=&quot;cn.tedu.entity.User&quot; 
+        table=&quot;t_user&quot;&gt;
+        &lt;!-- id标签用于映射主键列 --&gt;
+        &lt;id name=&quot;id&quot; column=&quot;t_id&quot;&gt;&lt;/id&gt;
+        &lt;!-- property标签用于映射普通属性 --&gt;
+        &lt;property name=&quot;name&quot; column=&quot;t_name&quot;/&gt;
+        &lt;property name=&quot;age&quot; column=&quot;t_age&quot;/&gt;
+        &lt;property name=&quot;salary&quot; column=&quot;t_salary&quot;/&gt;
+        &lt;property name=&quot;hiredate&quot; column=&quot;t_hiredate&quot;/&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+<blockquote>
+<p>DTD 来自文件 hibernate-mapping-3.0.dtd</p>
+</blockquote>
+</li>
+<li>
+<p>编写测试案例:</p>
+<pre><code>public class HibernateTest {
+
+    SessionFactory factory;
+    Session session;
+
+    @Before //初始化 Hibernate
+    public void init(){
+        Configuration cfg=new Configuration();
+        //加载主配置文件
+        cfg.configure(&quot;hibernate.cfg.xml&quot;);
+        factory = cfg.buildSessionFactory();
+        session = factory.openSession();
+    }
+
+    @After//Hiberbate 使用以后释放资源
+    public void destory(){
+        session.close();
+        factory.close();
+    }
+
+    @Test
+    public void testSaveUser(){
+        Transaction tx = session.beginTransaction();
+        long now=System.currentTimeMillis();
+        //创建User对象,调用save()保存到数据库中
+        User user=new User(
+            1,&quot;Tom&quot;,5,100.0,new Timestamp(now));
+        session.save(user);
+        tx.commit();
+    }
+} 
+</code></pre>
+
+<blockquote>
+<p>注意: Transaction 来自 org.hibernate.Transaction</p>
+</blockquote>
+</li>
+<li>
+<p>测试 </p>
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>搭建Struts2 + Spring 整合环境, 实现Hello World案例</li>
+<li>实现Excel文件下载功能</li>
+<li>实现图片下载功能</li>
+<li>搭建Hibernate环境, 实现 用户对象信息保存功能.</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

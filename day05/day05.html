@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day05</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>Hibernate</h2>
+<h3>主键生成规则</h3>
+<p>Hibernate 提供了主键生成器, 其封装了常见的主键生成规则:</p>
+<ol>
+<li>
+SequenceGenerator
+<ul>
+<li>利用序列生成主键, 适合: Oracle DB2</li>
+</ul>
+</li>
+<li>
+IncrementGenerator
+<ul>
+<li>利用当前主键最大值加1生成主键, 适合所有数据库, 有集群并发安全问题.</li>
+</ul>
+</li>
+<li>
+UUIDGenerator
+<ul>
+<li>利用UUID最为主键. 适合任何数据库</li>
+</ul>
+</li>
+<li>
+IdentityGenerator
+<ul>
+<li>利用自增类型作为主键, 适合有自增类型的数据库: MySQL, SQL Server DB2 等</li>
+</ul>
+</li>
+</ol>
+<p>案例原型:</p>
+<p><img src="2.png" /></p>
+<p>案例SQL:</p>
+<pre><code>create table p_user(
+    u_id int not null auto_increment,
+    u_name varchar(100), 
+    u_password varchar(100),
+    u_nick varchar(50),
+    u_reg_date timestamp,
+    primary key(u_id)
+); 
+
+insert into p_user (u_id, u_name, 
+    u_password, u_nick, u_reg_date)values
+    (null, '李洪鹤', '123', '李大湿', now());
+
+create table p_post(
+    p_id int not null auto_increment,
+    user_id int,
+    p_time timestamp,
+    p_content varchar(800),
+    primary key(p_id)
+);
+
+insert into p_post (p_id, user_id, p_time,
+    p_content) values (null, 1, now(), 
+    '今天早晨看到大长腿, 嘿嘿!');
+
+insert into p_post (p_id, user_id, p_time,
+    p_content) values (null, 1, now(), 
+    '今天天气不错, 晒吐露皮了!');
+
+create table p_comment(
+    c_id int not null auto_increment,
+    post_id int,
+    c_name varchar(100),
+    c_time timestamp,
+    c_content varchar(800),
+    primary key(c_id)
+);
+
+insert into p_comment ( c_id, post_id, 
+    c_name, c_time, c_content) values 
+    (null, 1, '范传奇', now(), 
+    '在哪个动物玩呢?');
+
+insert into p_comment ( c_id, post_id, 
+    c_name, c_time, c_content) values 
+    (null, 1, '王克晶', now(), 
+    '李老师动物凶猛呀!');
+
+insert into p_comment ( c_id, post_id, 
+    c_name, c_time, c_content) values 
+    (null, 1, '范传奇', now(), 
+    '请李老师附湿一首!'); 
+</code></pre>
+
+<blockquote>
+<p>其中: c<em>id int not null auto</em>increment 就是MySQL中的自增类型</p>
+</blockquote>
+<p>案例步骤: </p>
+<ol>
+<li>
+<p>编写实体类:</p>
+<pre><code>public class PUser implements Serializable {
+    private static final long serialVersionUID = -2723787919195549266L;
+
+    private Integer id;
+    private String name;
+    private String password;
+    private String nick;
+    private Timestamp regDate;
+
+    public PUser() {
+    }
+
+    public PUser(Integer id, String name, String password, String nick, Timestamp regDate) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.nick = nick;
+        this.regDate = regDate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public Timestamp getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Timestamp regDate) {
+        this.regDate = regDate;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        PUser other = (PUser) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;PUser [id=&quot; + id + &quot;, name=&quot; + name + &quot;, password=&quot; + password + &quot;, nick=&quot; + nick + &quot;, regDate=&quot;
+                + regDate + &quot;]&quot;;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写映射文件: PUser.hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;!-- /mapping/PUser.hbm.xml --&gt;
+    &lt;class name=&quot;cn.tedu.entity.PUser&quot;
+        table=&quot;p_user&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;u_id&quot;&gt; 
+            &lt;!-- &lt;generator class=&quot;org.hibernate.id.IdentityGenerator&quot;/&gt;--&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;property name=&quot;name&quot; column=&quot;u_name&quot; /&gt;
+        &lt;property name=&quot;password&quot; 
+            column=&quot;u_password&quot; type=&quot;string&quot;/&gt;
+        &lt;property name=&quot;nick&quot; column=&quot;u_nick&quot;/&gt;
+        &lt;property name=&quot;regDate&quot; 
+            column=&quot;u_reg_date&quot;/&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试案例:</p>
+<pre><code>@Test
+public void testAddPUser(){
+    long now = System.currentTimeMillis();
+    PUser user = new PUser(null, 
+        &quot;范传奇&quot;, &quot;123&quot;, &quot;范萌萌&quot;, 
+        new Timestamp(now));
+    Session session = factory.openSession();
+    Transaction tx=session.beginTransaction();
+    Object id=session.save(user);//自动生成ID
+    System.out.println(id);
+    System.out.println(user); 
+    tx.commit();
+    session.close();
+}
+</code></pre>
+
+<blockquote>
+<p>说明: 在数据库中可以看到插入的结果, 并且可以看到不需要设置ID, Hibernate就会生成对应的ID.</p>
+</blockquote>
+</li>
+</ol>
+<h2>复杂关联查询:</h2>
+<p>Hibernate 提供了关联查询功能, 只需要进行标签配置, 就可以将对象关联的对象查询出来, 可以大大节省编码.</p>
+<p>案例:</p>
+<ol>
+<li>
+<p>编写实体类:</p>
+<pre><code>public class Comment implements Serializable {
+    private static final long serialVersionUID = -1277268959640830134L;
+
+    private Integer id;
+    private Integer postId;
+    private String name;
+    private Timestamp time;
+    private String content;
+
+    public Comment() {
+    }
+
+    public Comment(Integer id, Integer postId, String name, Timestamp time, String content) {
+        super();
+        this.id = id;
+        this.postId = postId;
+        this.name = name;
+        this.time = time;
+        this.content = content;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Comment [id=&quot; + id + &quot;, postId=&quot; + postId + &quot;, name=&quot; + name + &quot;, time=&quot; + time + &quot;, content=&quot; + content
+                + &quot;]&quot;;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Comment other = (Comment) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+}
+
+
+public class Post implements Serializable{
+    private static final long serialVersionUID = 4052088422727902898L;
+
+    private Integer id;
+    private PUser user;
+    private String content;
+    private Timestamp time;
+    private Set&lt;Comment&gt; comments =
+            new HashSet&lt;Comment&gt;();
+
+    public Post() {
+    }
+
+    public Post(Integer id, PUser user, String content, Timestamp time, Set&lt;Comment&gt; comments) {
+        super();
+        this.id = id;
+        this.user = user;
+        this.content = content;
+        this.time = time;
+        this.comments = comments;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public PUser getUser() {
+        return user;
+    }
+
+    public void setUser(PUser user) {
+        this.user = user;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
+    }
+
+    public Set&lt;Comment&gt; getComments() {
+        return comments;
+    }
+
+    public void setComments(Set&lt;Comment&gt; comments) {
+        this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Post [id=&quot; + id + &quot;, user=&quot; + user + &quot;, content=&quot; + content + &quot;, time=&quot; + time + &quot;, comments=&quot;
+                + comments + &quot;]&quot;;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Post other = (Post) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写映射文件 Comment.hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.entity.Comment&quot;
+         table=&quot;p_comment&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;c_id&quot;&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;property name=&quot;postId&quot; column=&quot;post_id&quot;/&gt;
+        &lt;property name=&quot;name&quot; column=&quot;c_name&quot;/&gt;
+        &lt;property name=&quot;time&quot; column=&quot;c_time&quot;/&gt;
+        &lt;property name=&quot;content&quot; column=&quot;c_content&quot;/&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写映射文件 Post.hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.entity.Post&quot;
+         table=&quot;p_post&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;p_id&quot;&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;property name=&quot;time&quot; column=&quot;p_time&quot;/&gt;
+        &lt;property name=&quot;content&quot; 
+            column=&quot;p_content&quot;/&gt;
+        &lt;!-- 映射 User 属性, 表示当前多个Post
+        对象对应一个 User 对象 
+        Hibernate 会自动的关联查询响应的数据--&gt;
+        &lt;many-to-one name=&quot;user&quot; 
+            column=&quot;user_id&quot;   
+            class=&quot;cn.tedu.entity.PUser&quot;&gt;
+        &lt;/many-to-one&gt;
+        &lt;!-- 读取回复信息的SET集合 
+        从post角度看过去, 一个post对应多个回复--&gt;
+        &lt;set name=&quot;comments&quot; table=&quot;p_comment&quot;
+             &gt;
+            &lt;!-- key 标签用于指定在 p_comment
+            表中的外键关联列名 --&gt;
+            &lt;key column=&quot;post_id&quot;/&gt;
+            &lt;one-to-many class=&quot;cn.tedu.entity.Comment&quot;/&gt;
+        &lt;/set&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>@Test
+public void testGetPost(){
+    Session session = factory.openSession();
+    Post post = (Post)session.get(Post.class, 1);
+    System.out.println(post); 
+    session.close();
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>懒惰加载问题</h3>
+<p>Hibernate 默认情况下, 关联属性是懒惰加载的, 关联属性在访问时候才加载到内存中, 这样有利于减少SQL, 减少内存的消耗, 但是也有问题, 就是当Session关闭时候, 访问关联属性会出现懒惰加载异常的问题.</p>
+<p>解决懒惰加载异常的两种方法:</p>
+<ol>
+<li>
+<p>在映射文件中使用lazy=false属性, 这样Hibernate就会在加载数据时候立即加载关联属性. 但是这种方式也会增加内存的消耗.</p>
+<pre><code>&lt;!-- 映射 User 属性, 表示当前多个Post
+对象对应一个 User 对象 
+Hibernate 会自动的关联查询响应的数据--&gt;
+&lt;many-to-one name=&quot;user&quot; 
+    column=&quot;user_id&quot; lazy=&quot;false&quot; 
+    class=&quot;cn.tedu.entity.PUser&quot;&gt;
+&lt;/many-to-one&gt;
+&lt;!-- 读取回复信息的SET集合 
+从post角度看过去, 一个post对应多个回复--&gt;
+&lt;set name=&quot;comments&quot; table=&quot;p_comment&quot;
+    lazy=&quot;false&quot;&gt;
+    &lt;!-- key 标签用于指定在 p_comment
+    表中的外键关联列名 --&gt;
+    &lt;key column=&quot;post_id&quot;/&gt;
+    &lt;one-to-many class=&quot;cn.tedu.entity.Comment&quot;/&gt;
+&lt;/set&gt;
+</code></pre>
+
+</li>
+<li>
+<p>在Web项目中使用 OpenSessionInViewFilter  在View层中打开和关闭Session, 这样在访问关联属性时候Session就一定是打开的,不会发生异常.</p>
+<pre><code>  &lt;filter&gt;
+    &lt;display-name&gt;OpenSessionInViewFilter&lt;/display-name&gt;
+    &lt;filter-name&gt;OpenSessionInViewFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.orm.hibernate4.support.OpenSessionInViewFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;OpenSessionInViewFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+</code></pre>
+
+</li>
+</ol>
+<h3>Ajax案例</h3>
+<p><img src="4.png" /></p>
+<ol>
+<li>
+<p>开发DAO</p>
+<pre><code>public interface PostDao {
+    List&lt;Post&gt; finaAllPost();
+}
+
+@Repository(&quot;postDao&quot;)
+@Transactional
+public class PostDaoImpl implements PostDao {
+
+    @Resource(name=&quot;hibernateTemplate&quot;)
+    private HibernateTemplate template;
+
+    public List&lt;Post&gt; finaAllPost() {
+        String hql=&quot;from Post&quot;;
+        List&lt;Post&gt; list=(List&lt;Post&gt;)
+                template.find(hql);
+        return list;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>开发业务层:</p>
+<pre><code>public interface PostService {
+    List&lt;Post&gt; list();
+}
+
+@Service(&quot;postService&quot;)
+@Transactional
+public class PostServiceImpl 
+    implements PostService{
+
+    @Resource
+    private PostDao postDao;
+
+    public List&lt;Post&gt; list() {
+        return postDao.finaAllPost();
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>开发控制器:</p>
+<pre><code>public abstract class AbstractAction 
+    extends ActionSupport{
+
+    public static final String JSON=&quot;json&quot;;
+
+    protected JsonResult jsonResult;
+
+    public JsonResult getJsonResult() {
+        return jsonResult;
+    }
+    public void setJsonResult(JsonResult jsonResult) {
+        this.jsonResult = jsonResult;
+    }
+}
+
+
+@Controller
+@Scope(&quot;prototype&quot;)
+public class PostAction 
+    extends AbstractAction{
+    @Resource
+    private PostService postService;
+    public String list(){
+        List&lt;Post&gt; list=postService.list();
+        jsonResult=new JsonResult(list);
+        return JSON;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置控制器 struts.xml</p>
+<pre><code>&lt;package name=&quot;post&quot; namespace=&quot;/post&quot;
+    extends=&quot;json-default&quot;&gt;
+    &lt;action name=&quot;list&quot; class=&quot;postAction&quot;
+        method=&quot;list&quot;&gt;
+        &lt;result name=&quot;json&quot; type=&quot;json&quot;&gt;
+            &lt;param name=&quot;root&quot;&gt;jsonResult&lt;/param&gt;
+        &lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh/post/list.action
+</code></pre>
+
+</li>
+<li>
+<p>开发客户端: list.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;发帖列表&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; 
+    src=&quot;jquery/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+    loadPosts();
+});
+function loadPosts(){
+    var url = &quot;post/list.action&quot;;
+    $.getJSON(url, function(result){
+        console.log(result);
+        if(result.state==1){
+            showPosts(result.data);         
+        }else{
+            alert(result.message);
+        }
+    });
+}
+
+var template = '&lt;h2&gt;{content}&lt;/h2&gt;'+
+    '&lt;h3&gt;{time} {user.name}&lt;/h3&gt;';
+var commentTemplate='&lt;li&gt;&lt;span&gt;{comment.name}&lt;/span&gt;'+
+        ': &lt;span&gt;{comment.content}&lt;/span&gt;&lt;/li&gt;';
+
+function showPosts(posts){
+    $('#posts').empty();
+    for(var i=0; i&lt;posts.length; i++){
+        var post = posts[i];
+        var html=template
+            .replace('{content}', post.content)
+            .replace('{time}',post.time)
+            .replace('{user.name}',post.user.name);
+        $('#posts').append(html);
+        var ul = showComments(post.comments);
+        $('#posts').append(ul);
+    }
+}
+function showComments(comments){
+    var ul = $('&lt;ul&gt;&lt;/ul&gt;');
+    for(var i=0; i&lt;comments.length; i++){
+        var comment=comments[i];
+        var li = commentTemplate
+            .replace('{comment.name}',comment.name)
+            .replace('{comment.content}',comment.content);
+        ul.append(li);
+    }
+    return ul;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;好友圈&lt;/h1&gt;
+    &lt;div id=&quot;posts&quot;&gt;
+        &lt;h2&gt;今天看到大长腿&lt;/h2&gt;
+        &lt;h3&gt;2017-8-9 李老师&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;span&gt;范传奇&lt;/span&gt;
+            &lt;span&gt;取动物园了吧!&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;       
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>实现SSH AJAX 版本的 Post 列表</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

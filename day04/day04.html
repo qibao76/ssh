@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day04</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>添加用户功能</h2>
+<h3>添加用户功能之显示添加用户界面:</h3>
+<ol>
+<li>
+<p>编写nav.jsp 封装网页导航条</p>
+<pre><code>&lt;%@ page 
+    contentType=&quot;text/html; charset=utf-8&quot;
+   pageEncoding=&quot;utf-8&quot;%&gt;
+
+    &lt;h1&gt;用户管理&lt;/h1&gt;
+    &lt;!-- 导航菜单标签 nav  --&gt;
+    &lt;nav&gt;
+        &lt;a href=&quot;list.action&quot;&gt;首页&lt;/a&gt;
+        &lt;a href=&quot;add.action&quot;&gt;添加用户&lt;/a&gt;
+    &lt;/nav&gt;
+</code></pre>
+
+</li>
+<li>
+<p>更新列表界面 list.jsp 添加导航条:</p>
+<pre><code>&lt;%@ page  
+    contentType=&quot;text/html; charset=utf-8&quot;
+   pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@taglib prefix=&quot;c&quot;  
+    uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;c:import url=&quot;/WEB-INF/jsp/nav.jsp&quot;/&gt;
+    &lt;h2&gt;用户列表&lt;/h2&gt;
+    &lt;div&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;编号&lt;/th&gt;
+                &lt;th&gt;姓名&lt;/th&gt;
+                &lt;th&gt;年龄&lt;/th&gt;
+                &lt;th&gt;薪资&lt;/th&gt;
+                &lt;th&gt;功能&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;c:forEach items=&quot;${users}&quot; 
+                var=&quot;user&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;${user.id}&lt;/td&gt;
+                    &lt;td&gt;${user.name}&lt;/td&gt;
+                    &lt;td&gt;${user.age}&lt;/td&gt;
+                    &lt;td&gt;${user.salary}&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;a href=&quot;edit.action?id=${user.id}&quot;&gt;编辑&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:forEach&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;  
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写添加用户的表单界面 adduser.jsp  
+</p>
+<pre><code>&lt;%@ page 
+    contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@taglib prefix=&quot;c&quot; 
+    uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;c:import url=&quot;/WEB-INF/jsp/nav.jsp&quot;/&gt;
+    &lt;h2&gt;添加用户&lt;/h2&gt;
+    &lt;form action=&quot;save.action&quot; method=&quot;post&quot;&gt;
+        &lt;div&gt;
+            &lt;label&gt;用户名&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.name&quot;
+                value=&quot;${user.name}&quot;&gt;
+            &lt;c:if test=&quot;${type==1}&quot;&gt;
+                &lt;span&gt;${message}&lt;/span&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;年龄&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.age&quot;
+                value=&quot;${user.age}&quot;&gt;
+            &lt;c:if test=&quot;${type==2}&quot;&gt;
+                &lt;span&gt;${message}&lt;/span&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;薪水&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.salary&quot;
+                value=&quot;${user.salary}&quot;&gt; 
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;入职日期&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.hiredate&quot;
+                value=&quot;${user.hiredate}&quot;&gt; 
+            &lt;c:if test=&quot;${type==4}&quot;&gt;
+                &lt;span&gt;${message}&lt;/span&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;input type=&quot;submit&quot;&gt; 
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置控制器, 显示添加界面 struts.xml:</p>
+<pre><code>&lt;!-- 显示添加用户界面 --&gt;
+&lt;action name=&quot;add&quot;&gt;
+    &lt;result&gt;
+        /WEB-INF/jsp/adduser.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试添加用户界面</p>
+</li>
+</ol>
+<h3>保存用户到数据库</h3>
+<ol>
+<li>
+<p>编写 UserVO 封装用户封装的表单信息</p>
+<pre><code>public class UserVO implements Serializable {
+
+    private static final long serialVersionUID = -3138004225815811171L;
+
+    private String name;
+    private Integer age;
+    private Double salary;
+    private String hiredate;
+
+    public UserVO() {
+    }
+
+    public UserVO(String name, Integer age, Double salary, String hiredate) {
+        super();
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.hiredate = hiredate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+    public String getHiredate() {
+        return hiredate;
+    }
+
+    public void setHiredate(String hiredate) {
+        this.hiredate = hiredate;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;UserVO [name=&quot; + name + &quot;, age=&quot; + age + &quot;, salary=&quot; + salary + &quot;, hiredate=&quot; + hiredate + &quot;]&quot;;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加保存用户信息的业务方法 UserService</p>
+<pre><code>void save(String name, Integer age,
+    Double salary, String hiredate);
+
+void save(UserVO user); 
+</code></pre>
+
+</li>
+<li>
+<p>实现业务方法: UserServiceImpl</p>
+<pre><code>@Transactional
+public void save(String name, 
+        Integer age, Double salary, 
+        String hiredate) {
+
+    if(name==null||name.trim().isEmpty()){
+        throw new NameIsEmptyException(&quot;不能空&quot;);
+    }
+
+    if(age==null){
+        throw new AgeIsEmptyException(&quot;必须有年龄&quot;);
+    }
+    Timestamp t=null;
+    try{
+        Date d = DateUtils.parseDate(
+            hiredate, &quot;yyyy-MM-dd&quot;);
+        t = new Timestamp(d.getTime());
+    }catch(ParseException e){
+        e.printStackTrace();
+        throw new HiredateException(&quot;格式错误&quot;,e);
+    }
+    int max = userDao.findMaxId();
+    int id = max+1;
+    User user = new User(id, name, age,
+        salary, t);
+    userDao.saveUser(user);
+}
+
+public void save(UserVO user) {
+    save(user.getName(), user.getAge(), 
+    user.getSalary(), user.getHiredate());
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加数据访问方法 UserDao</p>
+<pre><code>int findMaxId(); 
+</code></pre>
+
+</li>
+<li>
+<p>实现数据访问方法 UserDaoImpl</p>
+<pre><code>public int findMaxId() {
+    //sql: select max(t_id) as id 
+    //     from t_user
+    String hql=&quot;select max(id) as id &quot;
+            + &quot;from User&quot;; 
+    List&lt;Number&gt;list=(List&lt;Number&gt;)
+            template.find(hql);
+    int id = list.get(0).intValue();
+    return id;
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加控制器方法 UserAction:</p>
+<pre><code>private UserVO user;
+public UserVO getUser() {
+    return user;
+}
+public void setUser(UserVO user) {
+    this.user = user;
+}
+
+//定义错误号: 1 name, 2 age, 3 salary,
+// 4 hiredate
+private int type;
+private String message;
+public String getMessage() {
+    return message;
+}
+public void setMessage(String message) {
+    this.message = message;
+}
+public int getType() {
+    return type;
+}
+public void setType(int type) {
+    this.type = type;
+}
+
+public String save(){
+    try{
+        userService.save(user);
+        return &quot;success&quot;;
+    }catch(NameIsEmptyException e){
+        e.printStackTrace();
+        type=1;
+        message = e.getMessage();
+        return &quot;error&quot;;
+    }catch(AgeIsEmptyException e){
+        e.printStackTrace();
+        type=2;
+        message = e.getMessage();
+        return &quot;error&quot;;
+    }catch (HiredateException e) {
+        e.printStackTrace();
+        type = 4;
+        message = e.getMessage();
+        return &quot;error&quot;;
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>其中 user 属性用于接收表单参数, type和message用于回显错误信息.</p>
+</blockquote>
+</li>
+<li>
+<p>配置控制器 struts.xml</p>
+<pre><code>&lt;!-- 添加用户表单的保存方法 --&gt;
+&lt;action name=&quot;save&quot; class=&quot;userAction&quot;
+    method=&quot;save&quot;&gt;
+    &lt;result name=&quot;success&quot; 
+        type=&quot;redirectAction&quot;&gt;
+        list
+    &lt;/result&gt;   
+    &lt;result name=&quot;error&quot;&gt;
+        /WEB-INF/jsp/adduser.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+</li>
+</ol>
+<h2>编辑用户功能</h2>
+<p>原理:</p>
+<h3>显示被编辑的用户信息</h3>
+<ol>
+<li>
+<p>添加数据层方法 UserDao</p>
+<pre><code>User findById(Integer id);
+</code></pre>
+
+</li>
+<li>
+<p>实现数据层方法 UserDaoImpl</p>
+<pre><code>public User findById(Integer id) {
+    return template.get(User.class, id); 
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加业务层方法: UserService</p>
+<pre><code>UserVO get(Integer id);
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层方法: UserServiceImpl</p>
+<pre><code>public UserVO get(Integer id) {
+    if(id==null){
+        throw new UserNotFoundException(&quot;ID不能空&quot;);
+    }
+    User user = userDao.findById(id);
+    if(user==null){
+        throw new UserNotFoundException(&quot;没有找到&quot;);
+    }
+    UserVO vo = new UserVO();
+    BeanUtils.copyProperties(user, vo);
+    vo.setHiredate(
+        DateFormatUtils.format(
+        user.getHiredate(), &quot;yyyy-MM-dd&quot;));
+    return vo;
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器方法: UserAction</p>
+<pre><code>private Integer id;
+public Integer getId() {
+    return id;
+}
+public void setId(Integer id) {
+    this.id = id;
+}
+
+public String edit(){
+    user = userService.get(id);
+    return &quot;success&quot;;
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加用户信息编辑界面: edituser.jsp</p>
+<pre><code>&lt;%@ page 
+    contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@taglib prefix=&quot;c&quot; 
+    uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;c:import url=&quot;/WEB-INF/jsp/nav.jsp&quot;/&gt;
+    &lt;h2&gt;修改用户&lt;/h2&gt;
+    &lt;form action=&quot;update.action&quot; method=&quot;post&quot;&gt;
+        &lt;div&gt;
+            &lt;label&gt;编号&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;id&quot;
+                value=&quot;${id}&quot; readonly=&quot;readonly&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;用户名&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.name&quot;
+                value=&quot;${user.name}&quot;&gt;
+            &lt;c:if test=&quot;${type==1}&quot;&gt;
+                &lt;span&gt;${message}&lt;/span&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;年龄&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.age&quot;
+                value=&quot;${user.age}&quot;&gt;
+            &lt;c:if test=&quot;${type==2}&quot;&gt;
+                &lt;span&gt;${message}&lt;/span&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;薪水&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.salary&quot;
+                value=&quot;${user.salary}&quot;&gt; 
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;入职日期&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;user.hiredate&quot;
+                value=&quot;${user.hiredate}&quot;&gt; 
+            &lt;c:if test=&quot;${type==4}&quot;&gt;
+                &lt;span&gt;${message}&lt;/span&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;input type=&quot;submit&quot;&gt; 
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置控制器 struts.xml</p>
+<pre><code>&lt;!-- 显示编辑用户信息的界面 --&gt;
+&lt;action name=&quot;edit&quot; class=&quot;userAction&quot;
+    method=&quot;edit&quot;&gt;
+    &lt;result name=&quot;success&quot; &gt;
+        /WEB-INF/jsp/edituser.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>重构 list.jsp 为显示编辑界传递id参数</p>
+<pre><code>&lt;td&gt;
+    &lt;a href=&quot;edit.action?id=${user.id}&quot;&gt;编辑&lt;/a&gt;
+&lt;/td&gt;
+</code></pre>
+
+</li>
+<li>
+<p>部署测试</p>
+</li>
+</ol>
+<h3>保存用户编辑结果</h3>
+<ol>
+<li>
+<p>添加数据保存方法 UserDao</p>
+<pre><code>void updateUser(User user);
+</code></pre>
+
+</li>
+<li>
+<p>实现数据层方法 UserDaoImpl</p>
+<pre><code>public void updateUser(User user) {
+    template.update(user); 
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加业务层方法 UserService</p>
+<pre><code>void update(UserVO user, Integer id);
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层方法 UserServiceImpl</p>
+<pre><code>public void update(UserVO user, Integer id) {
+    if(user.getName()==null||
+        user.getName().trim().isEmpty()){
+        throw new NameIsEmptyException(&quot;名字不能空&quot;);
+    }
+    if(user.getAge()==null){
+        throw new AgeIsEmptyException(&quot;姓名不能空&quot;);
+    }
+    Timestamp t = null;
+    try{
+        Date d = DateUtils.parseDate(
+                user.getHiredate(),
+                &quot;yyyy-MM-dd&quot;);
+        t=new Timestamp(d.getTime());
+    }catch(ParseException e){
+        e.printStackTrace();
+        throw new HiredateException(&quot;格式错误!&quot;,e);
+    }
+    User u = new User();
+    BeanUtils.copyProperties(user, u);
+    u.setId(id);
+    u.setHiredate(t);
+    userDao.updateUser(u);
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加控制器方法: UserAction</p>
+<pre><code>public String update(){
+    try {
+        userService.update(user, id);
+        return &quot;success&quot;;
+    } catch (NameIsEmptyException e) {
+        e.printStackTrace();
+        type=1;
+        message = e.getMessage();
+        return &quot;error&quot;;
+    } catch (AgeIsEmptyException e) {
+        e.printStackTrace();
+        type=2;
+        message = e.getMessage();
+        return &quot;error&quot;;
+    } catch (HiredateException e) {
+        e.printStackTrace();
+        type=4;
+        message = e.getMessage();
+        return &quot;error&quot;;
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>注意: user, id, type, message 属性已经重用了.</p>
+</blockquote>
+</li>
+<li>
+<p>配置控制器: struts.xml:</p>
+<pre><code>&lt;!-- 修改用户信息界面的保存功能 --&gt;
+&lt;action name=&quot;update&quot;
+    class=&quot;userAction&quot;
+    method=&quot;update&quot;&gt;
+    &lt;result name=&quot;success&quot; 
+        type=&quot;redirectAction&quot;&gt;
+        list
+    &lt;/result&gt;
+    &lt;result name=&quot;error&quot;&gt;
+        /WEB-INF/jsp/edituser.jsp
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试...</p>
+</li>
+</ol>
+<h2>Struts2 拦截器</h2>
+<p>用户请求的调用流程</p>
+<p>用户	请求:</p>
+<ol>
+<li>来自Tomcat线程池的线程</li>
+<li>Tomcat执行了 Struts2 的主控制器</li>
+<li>
+Struts2 主控制器执行了一系列 Struts2 拦截器
+<ul>
+<li>实现参数注入, 异常处理(500), cookie 等</li>
+</ul>
+</li>
+<li>调用了 子控制器方法</li>
+<li>
+子控制器调用了 Spring AOP 事务代理  
+
+<ul>
+<li>开启事务 返回时关闭事务</li>
+</ul>
+</li>
+<li>事务代理执行 业务层方法 </li>
+<li>业务层方法调用了 Spring AOP 事务代理</li>
+<li>事务代理执行了 DAO 方法</li>
+</ol>
+<p>拦截器工作原理:</p>
+<p><img src="3.png" />	 </p>
+<p>编写拦截器: </p>
+<ol>
+<li>
+<p>编写连接器类:</p>
+<pre><code>@Component
+public class DemoInterceptor
+    implements Interceptor {
+
+    public void destroy() {
+    }
+
+    public void init() {
+    }
+
+    public String intercept(
+            ActionInvocation inv) 
+            throws Exception {
+        System.out.println(&quot;开始&quot;);
+        String val= inv.invoke();
+        System.out.println(&quot;结束&quot;);
+        return val;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置组件扫描 spring-struts.xml</p>
+<pre><code>&lt;context:component-scan     
+    base-package=&quot;cn.tedu.web&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;interceptors&gt;
+    &lt;interceptor name=&quot;demo&quot; 
+        class=&quot;demoInterceptor&quot;&gt;
+    &lt;/interceptor&gt;
+
+    &lt;interceptor-stack name=&quot;myStack&quot;&gt;
+        &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;
+        &lt;interceptor-ref name=&quot;demo&quot;&gt;&lt;/interceptor-ref&gt;
+    &lt;/interceptor-stack&gt;
+&lt;/interceptors&gt;
+
+&lt;default-interceptor-ref name=&quot;myStack&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+</li>
+</ol>
+<p>经典面试题目: 如何开发一个 Struts2 拦截器</p>
+<pre><code>答案: 1. 实现拦截器接口, 在拦截器接口中调用 后续控制器; 2. 在配置时候必须将系统拦截器栈带上!
+</code></pre>
+
+<hr />
+<h2>作业</h2>
+<ol>
+<li>实现用户的CRUD功能</li>
+<li>利用拦截器实现控制器方法性能测试</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

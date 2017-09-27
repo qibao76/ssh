@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day03</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>Hibernate</h2>
+<h3>Hibernate CRUD</h3>
+<p>Hibernate 提供实体对象的CRUD方法, 这些方法会自动生成相应的SQL, 在执行DML方法时候需要使用 事务:</p>
+<p>案例:</p>
+<pre><code>@Test
+public void testSaveUser(){
+    Transaction tx = session.beginTransaction();
+    long now=System.currentTimeMillis();
+    //创建User对象,调用save()保存到数据库中
+    User user=new User(
+        1,&quot;Tom&quot;,5,100.0,new Timestamp(now));
+    session.save(user);
+    tx.commit();
+}
+
+@Test
+public void testGet(){
+    //测试 查询方法 get
+    int id=1;
+    User user=
+        (User)session.get(User.class, id);
+    System.out.println(user);
+}
+
+@Test
+public void testUpdate(){
+    Transaction tx=session.beginTransaction();
+    User user=(User)session.get(
+            User.class, 1);
+    user.setName(&quot;范传奇&quot;); 
+    session.update(user);
+    user=(User)session.get(
+            User.class, 1);
+    System.out.println(user);
+    tx.commit();
+}
+
+@Test
+public void testDelete(){
+    Transaction tx=session.beginTransaction();
+    User user=(User)session.get(
+            User.class, 1);
+    System.out.println(user);
+    session.delete(user); 
+    System.out.println(user); 
+    tx.commit();
+}
+
+@Test
+public void testAddDat(){
+    long now=System.currentTimeMillis();
+    Transaction tx = session.beginTransaction();
+    User user=new User(
+        1,&quot;Tom&quot;,20,200.0,new Timestamp(now));
+    session.save(user);
+    user=new User(
+        2,&quot;Jerry&quot;,5,100.0,new Timestamp(now));
+    session.save(user);
+    user=new User(
+        3,&quot;Mac&quot;,20,200.0,new Timestamp(now));
+    session.save(user);
+    tx.commit();
+}
+</code></pre>
+
+<h3>HQL</h3>
+<p>Hibernate中不用使用SQL, 查询使用可以使用HQL, 其语法与SQL类似:</p>
+<ol>
+<li>如果是查询全部属性数据, 则可以省略select子句</li>
+<li>表名替换为其对应的实体类名</li>
+<li>列名替换为其对应的实体属性名</li>
+</ol>
+<p>案例:</p>
+<pre><code>@Test
+public void testFindAll(){
+    //sql: select * from t_user
+    //HQL: from User
+    //1. 如果是查询全部属性数据, 
+    //   则可以省略select子句
+    //2. 表名替换为其对应的实体类名
+    //3. 列名替换为其对应的实体属性名
+
+    String hql=&quot;from User&quot;;
+    //利用Query接口执行HQL
+    Query query=
+        session.createQuery(hql);
+    List&lt;User&gt; list=query.list();
+    for (User user : list) {
+        System.out.println(user); 
+    }
+}
+
+@Test
+public void testFindByAge(){
+    //sql: select * from t_user 
+    //     where t_age=?
+    //hql: from User where age=?
+    String hql=&quot;from User where age=?&quot;;
+    Query query=session.createQuery(hql);
+    query.setInteger(0, 20);
+    List&lt;User&gt; list=query.list();
+    for (User user : list) {
+        System.out.println(user); 
+    }
+}
+
+@Test
+public void testFindMapList(){
+    //sql: select t_id, t_name 
+    //     from t_user where t_age=?
+    //     order by t_name
+    //hql: select new map(id as id, 
+    //            name as name) 
+    //     from User where age=?
+    //     order by name
+    String hql=&quot;select new map(id as id, &quot;
+            + &quot;name as name) &quot;
+            + &quot;from User where age=:age &quot;
+            + &quot;order by name&quot;;
+    Query query=session.createQuery(hql);
+    //按照名称替换参数
+    query.setInteger(&quot;age&quot;, 20);
+    List&lt;Map&lt;String, Object&gt;&gt; list=
+            query.list();
+    for (Map&lt;String, Object&gt; map : list) {
+        System.out.println(map);
+    }
+}
+</code></pre>
+
+<h3>Hibernate 对象生存周期管理</h3>
+<p>Hibernate 管理的对象有三种生存周期状态:</p>
+<p><img src="1.png" /></p>
+<p>测试持久状态:</p>
+<pre><code>@Test
+public void testSave(){
+    long now=System.currentTimeMillis();
+    Transaction tx=session.beginTransaction();
+    User user=new User(5, &quot;范老师&quot;,
+        20, 3000.0, new Timestamp(now));
+    //临时状态
+    session.save(user);
+    //持久状态
+    user.setSalary(100.0);
+    user.setAge(50);
+    //清理session,执行全部SQL
+    session.flush();
+    tx.commit();
+    //session.evict(object);
+}
+</code></pre>
+
+<p>测试游离状态:</p>
+<pre><code>@Test
+public void testEvict(){
+    long now=System.currentTimeMillis();
+    Transaction tx=session.beginTransaction();
+    User user=new User(
+            6, &quot;李老师&quot;, 20, 200.0,
+            new Timestamp(now));
+    session.save(user);
+    //持久状态
+    session.flush();//执行可能的sql
+    session.evict(user);//将user从session中清除
+    //游离状态
+    user.setAge(50);
+    session.flush();//执行可能的sql
+    tx.commit();
+}
+</code></pre>
+
+<p>测试各种状态:</p>
+<pre><code>@Test
+public void testLiftCircle(){
+    Transaction tx=session.beginTransaction();
+    User user=
+        (User)session.load(User.class,1);
+    System.out.println(user);
+    //持久状态
+    user.setAge(50);
+    session.flush();
+    session.clear();
+    //游离状态
+    user.setAge(30);
+    session.flush();
+    session.update(user);
+    //持久状态
+    session.flush();
+    session.delete(user);
+    //临时状态
+    System.out.println(user);
+    tx.commit();
+}
+</code></pre>
+
+<h3>Spring 整合 Hibernate</h3>
+<p>Spring 提供了一个包 spring-orm 对 Hibernate进行支持, 简化了Hibernate的对象管理:</p>
+<ol>
+<li>LocalSessionFactoryBean 简化 SessionFactory的管理</li>
+<li>HibernateTemplate 简化了 Sesison 的使用 </li>
+<li>HibernateTransactionManager 简化了事务处理.</li>
+</ol>
+<blockquote>
+<p>spring-orm 依赖 DataSource</p>
+</blockquote>
+<p>整合步骤:</p>
+<ol>
+<li>
+<p>导入 spring-orm 和 DataSource</p>
+<pre><code>&lt;!--添加alibaba的druid连接池依赖 暂且可以将DRUID理解为增强版DBCP --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;druid&lt;/artifactId&gt;
+    &lt;version&gt;1.0.23&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+    &lt;version&gt;4.1.6.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<blockquote>
+<p>注意: spring-orm 的版本要与 spring 的版本一致</p>
+</blockquote>
+</li>
+<li>
+<p>添加数据库连接参数文件 conf/jdbc.properties</p>
+<pre><code>jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/ssh
+jdbc.username=root
+jdbc.password=root
+jdbc.initialSize=5
+jdbc.maxActive=50
+jdbc.minIdle=0
+jdbc.maxWait=60000
+jdbc.druid.filters=
+jdbc.timeBetweenLogStatsMillis=60000 
+</code></pre>
+
+</li>
+<li>
+<p>配置连接池 conf/spring-pool.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans default-lazy-init=&quot;true&quot;
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xsi:schemaLocation=&quot;  
+       http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+       http://www.springframework.org/schema/mvc   
+       http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd   
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx-4.1.xsd   
+       http://www.springframework.org/schema/context  
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd&quot; &gt;  
+
+   &lt;!-- 加载jdbc.properties文件(一般加载多个文件时
+        可考虑使用此方式) ,回顾使用&lt;util:properties&gt;--&gt;
+   &lt;bean id=&quot;propertyConfigurer&quot;  class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;
+        &lt;property name=&quot;locations&quot;&gt;
+            &lt;list&gt;
+                &lt;value&gt;classpath:conf/jdbc.properties&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+   &lt;/bean&gt;
+
+
+
+   &lt;!-- 配置DRUID连接池(这个连接池的说明:
+   http://github.com 在搜索栏输入druid查找)
+     这个stat-filter 是一个可选的配置
+   --&gt;
+   &lt;bean id=&quot;stat-filter&quot; class=&quot;com.alibaba.druid.filter.stat.StatFilter&quot;
+    lazy-init=&quot;true&quot;&gt;
+        &lt;description&gt;状态过滤器&lt;/description&gt;
+         &lt;!-- 通过slowSqlMillis用来配置SQL慢的标准 --&gt;
+        &lt;property name=&quot;slowSqlMillis&quot; value=&quot;3000&quot; /&gt;
+         &lt;!-- 以日志形式输出执行效率慢的SQL --&gt;
+        &lt;property name=&quot;logSlowSql&quot; value=&quot;true&quot; /&gt;
+        &lt;!-- 通过mergeSql属性，合并SQL --&gt;
+        &lt;property name=&quot;mergeSql&quot; value=&quot;true&quot; /&gt;
+   &lt;/bean&gt;
+   &lt;!--配置DruidDataSource连接池,其中可通过${key}获取properties文件中的值 --&gt;
+   &lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;
+        destroy-method=&quot;close&quot; init-method=&quot;init&quot; lazy-init=&quot;true&quot;&gt;
+        &lt;property name=&quot;driverClassName&quot; value=&quot;${jdbc.driver}&quot; /&gt;
+        &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+        &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+        &lt;!-- 初始化连接大小 --&gt;
+        &lt;property name=&quot;initialSize&quot; value=&quot;${jdbc.initialSize}&quot; /&gt;
+        &lt;!-- 连接池最大数量 --&gt;
+        &lt;property name=&quot;maxActive&quot; value=&quot;${jdbc.maxActive}&quot; /&gt;
+        &lt;!-- 连接池最小空闲 --&gt;
+        &lt;property name=&quot;minIdle&quot; value=&quot;${jdbc.minIdle}&quot; /&gt;
+        &lt;!-- 获取连接最大等待时间 --&gt;
+        &lt;property name=&quot;maxWait&quot; value=&quot;${jdbc.maxWait}&quot; /&gt;
+        &lt;!--配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁。 --&gt;
+        &lt;property name=&quot;useUnfairLock&quot; value=&quot;true&quot; /&gt;
+        &lt;property name=&quot;defaultReadOnly&quot; value=&quot;false&quot; /&gt;
+
+        &lt;!-- 通过配置StatFilter,打开监控台统计功能 --&gt;
+        &lt;property name=&quot;proxyFilters&quot;&gt;
+            &lt;list&gt;
+                &lt;ref bean=&quot;stat-filter&quot; /&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;filters&quot; value=&quot;${jdbc.druid.filters}&quot; /&gt;
+     &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置 Hibernate, conf/spring-hibernate.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans default-lazy-init=&quot;true&quot;
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xsi:schemaLocation=&quot;  
+       http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+       http://www.springframework.org/schema/mvc   
+       http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd   
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx-4.1.xsd   
+       http://www.springframework.org/schema/context  
+       http://www.springframework.org/schema/context/spring-context-4.1.xsd&quot; &gt;  
+
+    &lt;!-- 管理 Hibernate4 SessionFactory --&gt;
+    &lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;
+        &lt;property name=&quot;dataSource&quot;
+            ref=&quot;dataSource&quot;/&gt;
+        &lt;property name=&quot;hibernateProperties&quot;&gt;
+            &lt;props&gt;
+                &lt;prop key=&quot;hibernate.dialect&quot;&gt;
+                    org.hibernate.dialect.MySQL5Dialect
+                &lt;/prop&gt;
+                &lt;prop key=&quot;hibernate.show_sql&quot;&gt;
+                    true
+                &lt;/prop&gt;
+                &lt;prop key=&quot;hibernate.format_sql&quot;&gt;
+                    true
+                &lt;/prop&gt;
+            &lt;/props&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;mappingLocations&quot; 
+            value=&quot;classpath:mapping/*.xml&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!-- 配置HibernateTemplate --&gt;
+    &lt;bean id=&quot;hibernateTemplate&quot; class=&quot;org.springframework.orm.hibernate4.HibernateTemplate&quot;&gt;
+        &lt;property name=&quot;sessionFactory&quot;
+            ref=&quot;sessionFactory&quot;/&gt;
+    &lt;/bean&gt; 
+    &lt;!-- 配置事务管理器 --&gt;
+    &lt;bean id=&quot;txManager&quot;  class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;
+        &lt;property name=&quot;sessionFactory&quot;
+            ref=&quot;sessionFactory&quot;/&gt;
+    &lt;/bean&gt;
+    &lt;!-- 配置声明式事务 --&gt;
+    &lt;tx:annotation-driven 
+        transaction-manager=&quot;txManager&quot;/&gt;
+&lt;/beans&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>public class ORMTestCase {
+    ClassPathXmlApplicationContext ctx;
+    SessionFactory factory;
+
+    @Before
+    public void init(){
+        ctx=new ClassPathXmlApplicationContext(
+            &quot;conf/spring-pool.xml&quot;,
+            &quot;conf/spring-hibernate.xml&quot;);
+        factory = ctx.getBean(&quot;sessionFactory&quot;,
+                SessionFactory.class);
+    }
+    @After
+    public void destory(){
+        factory.close();
+        ctx.close();
+    }
+
+    @Test
+    public void testSession(){
+        Session session=factory.openSession();
+        User user = (User)session.get(
+            User.class, 2);
+        System.out.println(user);
+        session.close();
+    }
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>Hibernate DAO</h3>
+<p>HibernateTemplate 天生就是为DAO设计的! 天生为数据持久层设计.
+HibernateTemplate 封装了Session对象, 提供了实体对象的CRUD操作, 简单的替代 Session的功能.</p>
+<p>使用 HibernateTemplate:</p>
+<ol>
+<li>
+<p>声明Dao接口 </p>
+<pre><code>public interface UserDao {
+    void saveUser(User user);
+}
+</code></pre>
+
+</li>
+<li>
+<p>实现Dao接口:</p>
+<pre><code>@Repository(&quot;userDao&quot;)
+public class UserDaoImpl implements UserDao {
+
+    @Resource(name=&quot;hibernateTemplate&quot;)
+    private HibernateTemplate template;
+
+    @Transactional
+    public void saveUser(User user) {
+        template.save(user);
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置dao组件扫描 spring-hibernate.xml</p>
+<pre><code>&lt;!-- 扫描dao组件 --&gt;
+&lt;context:component-scan base-package=&quot;cn.tedu.dao&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>public class DaoTest {
+    ClassPathXmlApplicationContext ctx;
+    UserDao dao;
+
+    @Before 
+    public void init(){
+        ctx = new ClassPathXmlApplicationContext(
+        &quot;conf/spring-pool.xml&quot;,
+        &quot;conf/spring-hibernate.xml&quot;);
+        dao = ctx.getBean(
+            &quot;userDao&quot;,UserDao.class);
+    }
+
+    @After
+    public void destory(){
+        ctx.close();
+    }
+
+    @Test
+    public void testSave(){
+        long now = System.currentTimeMillis();
+        User user=new User(8, &quot;熊大&quot;, 
+            8, 200.0, new Timestamp(now));
+        dao.saveUser(user); 
+    }
+}
+</code></pre>
+
+</li>
+</ol>
+<h2>SSH 整合测试</h2>
+<p>SSH整合显示全部用户列表的原理:</p>
+<p><img src="2.png" /></p>
+<p>实现步骤:</p>
+<ol>
+<li>
+<p>编写 持久层方法 UserDao</p>
+<pre><code>List&lt;User&gt; findAllUsers();
+</code></pre>
+
+</li>
+<li>
+<p>实现持久层方法 UserDaoImpl</p>
+<pre><code>@Transactional
+public List&lt;User&gt; findAllUsers() {
+    String hql = &quot;from User&quot;;
+    return (List&lt;User&gt;)template.find(hql);
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试 DaoTest:</p>
+<pre><code>@Test
+public void testFindAllUsers(){
+    List&lt;User&gt; list=dao.findAllUsers();
+    for (User user : list) {
+        System.out.println(user); 
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写业务层接口:</p>
+<pre><code>public interface UserService {
+    List&lt;User&gt; list();
+}
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层接口</p>
+<pre><code>@Service(&quot;userService&quot;)
+@Transactional
+public class UserServiceImpl 
+    implements UserService{
+
+    @Resource
+    private UserDao userDao;
+
+    public List&lt;User&gt; list() {
+        return userDao.findAllUsers();
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器类:</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class UserAction {
+
+    @Resource 
+    private UserService userService;
+
+    private List&lt;User&gt; users = 
+            new ArrayList&lt;User&gt;();
+    public List&lt;User&gt; getUsers() {
+        return users;
+    }
+    public void setUsers(List&lt;User&gt; users) {
+        this.users = users;
+    }
+
+    public String list(){
+        users = userService.list();
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写 /WEB-INF/jsp/list.jsp </p>
+<pre><code>&lt;%@ page  
+    contentType=&quot;text/html; charset=utf-8&quot;
+   pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@taglib prefix=&quot;c&quot;  
+    uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;员工管理&lt;/h1&gt;
+    &lt;div&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;编号&lt;/th&gt;
+                &lt;th&gt;姓名&lt;/th&gt;
+                &lt;th&gt;年龄&lt;/th&gt;
+                &lt;th&gt;薪资&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;c:forEach items=&quot;${users}&quot; 
+                var=&quot;user&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;${user.id}&lt;/td&gt;
+                    &lt;td&gt;${user.name}&lt;/td&gt;
+                    &lt;td&gt;${user.age}&lt;/td&gt;
+                    &lt;td&gt;${user.salary}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:forEach&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;  
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<blockquote>
+<p>需要用到 JSTL 标签库,需要导入jstl</p>
+</blockquote>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;jstl&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;package name=&quot;user&quot; namespace=&quot;/user&quot; 
+    extends=&quot;json-default&quot;&gt;
+    &lt;action name=&quot;list&quot; class=&quot;userAction&quot;
+        method=&quot;list&quot;&gt; 
+        &lt;result name=&quot;success&quot;&gt;
+            /WEB-INF/jsp/list.jsp
+        &lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+</code></pre>
+
+</li>
+<li>
+<p>开启业务层和控制器组件扫描:</p>
+<pre><code>&lt;context:component-scan     
+    base-package=&quot;cn.tedu.service&quot;/&gt;
+&lt;context:component-scan     
+    base-package=&quot;cn.tedu.action&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>部署测试</p>
+<pre><code>http://localhost:8080/ssh/user/list.action
+</code></pre>
+
+</li>
+</ol>
+<h3>Struts2 控制器线程安全问题</h3>
+<p>原理:</p>
+<p><img src="3.png" /></p>
+<p><img src="4.png" /></p>
+<p>面试题目: Struts2 中如何解决控制器并发安全性问题的? </p>
+<pre><code>答案: Struts2控制器是有状态的! 为每个用户请求创建一个控制器对象, 
+来解决并发安全问题, 在SSH整合时候使用@Scope(&quot;prototype&quot;)  
+</code></pre>
+
+<p>面试题目: Spring MVC 中如何解决控制器并发安全性问题的? </p>
+<pre><code>答案: 保持控制器是无状态的Bean, 就是:不要在控制器中定义读写变量
+</code></pre>
+
+<hr />
+<h2>作业</h2>
+<ol>
+<li>搭建SSH环境, 开发用户列表功能</li>
+<li>开发添加用户功能</li>
+<li>开发更新用户功能</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

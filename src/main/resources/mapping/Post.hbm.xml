@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.tedu.entity.Post" table="p_post">
+		<id name="id" column="p_id">
+			<generator class="identity" />
+		</id>
+		<property name="time" column="p_time" />
+		<property name="content" column="p_content" />
+		<!-- 映射 User 属性, 表示当前多个Post 对象对应一个 User 对象 
+		Hibernate 会自动的关联查询响应的数据 -->
+		<many-to-one name="user" column="user_id" class="cn.tedu.entity.PUser">
+<!--    <many-to-one name="user" column="user_id"  lazy="false" class="cn.tedu.entity.PUser"> -->
+		</many-to-one>
+		<!-- 读取回复信息的SET集合 从post角度看过去, 一个post对应多个回复 -->
+		<set name="comments" table="p_comment">
+			<!-- key 标签用于指定在 p_comment 表中的外键关联列名 -->
+			<key column="post_id" />
+			<one-to-many class="cn.tedu.entity.Comment" />
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+
